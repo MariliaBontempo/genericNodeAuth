@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: protected
+      POSTGRES_DB: mydb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  api:
+    build: .
+    container_name: api
+    ports:
+      - "4000:4000"
+    environment:
+      DATABASE_URL: postgresql://admin:protected@postgres:5432/mydb?schema=public
+      NODE_ENV: development
+      JWT_SECRET: ${JWT_SECRET}
+    volumes:
+      - ./src:/usr/src/app/src
+      - ./prisma:/usr/src/app/prisma
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
