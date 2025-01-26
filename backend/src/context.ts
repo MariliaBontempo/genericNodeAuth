@@ -1,7 +1,7 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, User } from '@prisma/client';
 import { prisma } from './prisma';
 import {Request} from 'express'
-import {getUser} from '../services/auth/auth'
+import {getUser} from './services/auth/middleware/auth'
 
 export interface Context {
   prisma: PrismaClient;
@@ -14,5 +14,9 @@ export const context = async ({ req }: { req: Request}): Promise<Context> => {
     user
   }
 };
+
+export interface ResolverContext extends Context {
+  user: User | null;
+}
 
 export { prisma };
