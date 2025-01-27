@@ -80,33 +80,7 @@ yarn dev
 
 ## 🏗️ Project Structure
 
-.
-├── src/
-│   ├── services/            # Services layer
-│   │   └── auth/            # Authentication service
-│   │       └── auth.ts      # Authentication logic
-│   │
-│   ├── schema.ts              # GraphQL schema and resolvers
-│   │
-│   ├── prisma.ts            # Prisma client instance
-│   │
-│   ├── context.ts           # GraphQL context configuration
-│   │
-│   └── app.ts               # Main application file
-│
-├── prisma/
-│   ├── migrations/          # Database migrations
-│   │   ├── migration.sql    # Initial user table migration
-│   │   └── migration_lock.toml # Migration lock file
-│   │
-│   └── schema.prisma        # Prisma schema definition
-│
-├── init.sh                  # Initialization script
-├── Dockerfile               # Node.js application Dockerfile
-├── docker-compose.yml       # Docker compose configuration
-├── package.json             # Project dependencies and scripts
-├── tsconfig.json            # TypeScript configuration
-└── README.md                # Project documentation
+. ├── src/ │ ├── services/ # Camada de serviços │ │ └── auth/ # Serviço de autenticação │ │ └── auth.ts # Lógica de autenticação │ │ ├── schema.ts # Schema GraphQL e resolvers │ │ ├── prisma.ts # Instância do cliente Prisma │ │ ├── context.ts # Configuração do contexto GraphQL │ │ └── app.ts # Arquivo principal da aplicação │ ├── prisma/ │ ├── migrations/ # Migrações do banco de dados │ │ ├── migration.sql # Migração inicial da tabela de usuários │ │ └── migration_lock.toml # Arquivo de bloqueio de migrações │ └── schema.prisma # Definição do schema do Prisma │ ├── init.sh # Script de inicialização ├── Dockerfile # Dockerfile para aplicação Node.js ├── docker-compose.yml # Configuração do Docker Compose ├── package.json # Dependências e scripts do projeto ├── tsconfig.json # Configuração do TypeScript └── README.md #
 
 
 ## 📝 API Documentation
